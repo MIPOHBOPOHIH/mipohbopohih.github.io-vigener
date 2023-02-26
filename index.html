@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vigenere Breaker</title>
+</head>
+<body>
+  <h1>Vigenere Breaker</h1>
+  <p>Enter the encrypted text:</p>
+  <textarea id="input" rows="10" cols="50"></textarea>
+  <p>Enter the number of characters in the key:</p>
+  <input type="number" id="key-length" min="1" max="100">
+  <button onclick="decrypt()">Decrypt</button>
+  <h2>Possible decryptions:</h2>
+  <ul id="output"></ul>
+  <script src="vigenere_breaker.js"></script>
+</body>
+</html>
