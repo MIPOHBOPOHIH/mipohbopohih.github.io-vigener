@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Цезарь</title>
+  <title>Vigenere Breaker</title>
   <script src="script.js"></script>
 </head>
 <body>
-  <h1>Расшифровка Цезаря</h1>
+  <h1>Vigenere Breaker</h1>
   <p>Введите зашифрованный текст:</p>
   <textarea id="input" rows="10" cols="50"></textarea>
+  <p>Введите длину ключа:</p>
+  <input type="number" id="keyLength" min="1" max="100">
   <button onclick="decrypt()">Расшифровать</button>
   <h2>Варианты расшифровки:</h2>
   <ul id="output"></ul>
