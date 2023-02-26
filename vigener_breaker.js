@@ -1,6 +1,13 @@
 function decrypt() {
   let cipherText = document.getElementById("input").value.toLowerCase();
-  const keyLength = document.getElementById("key-length").value;
+  const keyLengthInput = document.getElementById("key-length");
+  let keyLength = keyLengthInput.valueAsNumber;
+  
+  if (!keyLength) {
+    alert("Введите длину ключа");
+    return;
+  }
+
   let possibleKeys = generatePossibleKeys(keyLength);
 
   let decryptedTexts = [];
@@ -29,16 +36,16 @@ function decrypt() {
 function generatePossibleKeys(length) {
   let possibleKeys = [];
 
-  function generateKeysRecursive(prefix) {
-    if (prefix.length === length) {
-      possibleKeys.push(prefix);
-      return;
+  for (let i = 0; i < 26 ** length; i++) {
+    let key = "";
+    let quotient = i;
+    for (let j = 0; j < length; j++) {
+      let remainder = quotient % 26;
+      key = String.fromCharCode(remainder + 97) + key;
+      quotient = Math.floor(quotient / 26);
     }
-    for (let i = 0; i < 26; i++) {
-      generateKeysRecursive(prefix + String.fromCharCode(i + 97));
-    }
+    possibleKeys.push(key);
   }
 
-  generateKeysRecursive("");
   return possibleKeys;
 }
